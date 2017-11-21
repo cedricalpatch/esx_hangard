@@ -7,7 +7,7 @@ CREATE TABLE `owned_vehicles` (
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
 
-CREATE TABLE `user_parkings` (
+CREATE TABLE `user_hangard` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `identifier` varchar(60) COLLATE utf8mb4_bin DEFAULT NULL,
   `vehicle` longtext COLLATE utf8mb4_bin,
