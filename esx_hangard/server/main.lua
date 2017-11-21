@@ -108,7 +108,7 @@ AddEventHandler('esx_hangard:addCarToParking', function(vehicleProps)
 	if vehicleProps ~= nil then
 
 		MySQL.Async.execute(
-			'INSERT INTO `user_parkings` (`identifier`, `plate`, `vehicle`) VALUES (@identifier, @plate, @vehicle)',
+			'INSERT INTO `user_hangard` (`identifier`, `plate`, `vehicle`) VALUES (@identifier, @plate, @vehicle)',
 			{
 				['@identifier']   = xPlayer.identifier,
         ['@plate']        = vehicleProps.plate,
@@ -130,7 +130,7 @@ AddEventHandler('esx_hangard:removeCarFromParking', function(plate)
 	if plate ~= nil then
 
 		MySQL.Async.execute(
-			'DELETE FROM `user_parkings` WHERE `identifier` = @identifier AND `plate` = @plate',
+			'DELETE FROM `user_hangard` WHERE `identifier` = @identifier AND `plate` = @plate',
 			{
 				['@identifier'] = xPlayer.identifier,
         ['@plate'] = plate
@@ -170,7 +170,7 @@ ESX.RegisterServerCallback('esx_hangard:getVehiclesInGarage', function(source, c
 	local xPlayer = ESX.GetPlayerFromId(source)
 
 	MySQL.Async.fetchAll(
-		'SELECT * FROM `user_parkings` WHERE `identifier` = @identifier',
+		'SELECT * FROM `user_hangard` WHERE `identifier` = @identifier',
 		{
 			['@identifier'] = xPlayer.identifier
 		},
